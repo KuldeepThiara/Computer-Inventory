@@ -1,6 +1,5 @@
 # Name = Kuldeep Thiara
 # Class = CS-3100
-# I learned everything from tutorialspoint.com
 
 #Import the required libraries
 from tkinter import *
