@@ -1,3 +1,4 @@
+Creator: Kuldeep Thiara
 
 Welcome to CIS (Computer inventory system)
 
@@ -41,7 +42,7 @@ ____________________________________________________Login Info__________________
 *******************************( Purpose of each file ) *********************************************
 
 
-cis.py -> Contains the code for GUI setup along with functions to read from CSV file. 
+cis.py -> Contains the code for GUI setup (Main file to run the application)
 
 Computer.py -> Contains the code for the word class
 
@@ -59,12 +60,4 @@ ComputerInventoryHTDictAbstract.py -> Computer Inventory abstract class
 
 Inventory.csv -> This is CSV file where the program reads that data from. 
 
-Meeting log -> Is the log for meeting the I attending for the group meeting.
 
-Analysis Report - Provide my opinion about the new implementation in comparison of the old one  
-
-HTDictTest Run Screen-Shot -> Displays results of running HTDictTest.py in Terminal 
-
-GUI Screen Shot -> Displays results of running model search function in GUI 
-
-GUI 2 Screen Shot -> Displays results of running search all by date function in GUI 

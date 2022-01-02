@@ -4,7 +4,9 @@
 from Computer import Computer
 from HTDictAbstract import HTDictAbstract
 
-#Implementing a dictionary using hashtable
+# Implementing a dictionary using hashtable
+
+
 class HTDict(HTDictAbstract):
 
     def __init__(self, size=99):
@@ -16,24 +18,23 @@ class HTDict(HTDictAbstract):
     def get_key(self):
         return self.key
 
-    def set_key(self,key):
+    def set_key(self, key):
         self.key = key
 
     def get_value(self):
         return self.value
 
-    def set_value(self,value):
+    def set_value(self, value):
         self.value = value
 
+    # Defining our print format. Now we can call
+    # print(Node)
 
-    #Defining our print format. Now we can call
-    #print(Node)
     def __str__(self):
         return str(self.key) + ": " + str(self.value)
 
-
     # Function to add key and value to hash table (Key is model name)
-    def push(self,key,value):
+    def push(self, key, value):
 
         # Formating the key value
         key = key.upper()
@@ -63,15 +64,15 @@ class HTDict(HTDictAbstract):
 
                 # Set new key, if NONE
                 if self.hash_table[nextslot] == None:
-                    self.hash_table[nextslot]=key
-                    self.value[nextslot]=value
+                    self.hash_table[nextslot] = key
+                    self.value[nextslot] = value
 
                 # Otherwise replace old value
                 else:
                     self.value[nextslot] = value
 
     # Function to add key and value to hash table (Key is date)
-    def push2(self,key,value):
+    def push2(self, key, value):
 
         # Formating the key value
         key = key.upper()
@@ -83,7 +84,6 @@ class HTDict(HTDictAbstract):
         if self.hash_table[hashvalue] == None:
             self.hash_table[hashvalue] = key
             self.value[hashvalue] = value
-
 
         # Else get to the next slot
         else:
@@ -99,10 +99,9 @@ class HTDict(HTDictAbstract):
                 else:
                     hashvalue += 1
 
-
     # Function to search by Model name
     # Return key and value
-    def search(self,key):
+    def search(self, key):
 
         # Set up variables for our search
         startslot = self.hashfunction(key)
@@ -110,7 +109,6 @@ class HTDict(HTDictAbstract):
         stop = False
         found = False
         position = startslot
-
 
         # Until we discern that its not empty or found (and haven't stopped yet)
         while self.hash_table[position] != None and not found and not stop:
@@ -120,16 +118,16 @@ class HTDict(HTDictAbstract):
                 value = self.value[position]
 
             else:
-                position=self.rehash(position)
+                position = self.rehash(position)
                 if position == startslot:
 
                     stop = True
 
-        return  (key, value)
+        return (key, value)
 
     # Function to search by Date
     # Returns list of data that contains the values associated with date
-    def search2 (self,key):
+    def search2(self, key):
         # Set up variables for our search
         startslot = self.hashfunction(key)
         value = None
@@ -148,33 +146,33 @@ class HTDict(HTDictAbstract):
                 index = 1
 
             else:
-                position=self.rehash(position)
+                position = self.rehash(position)
                 index = 0
                 if position == startslot:
                     index = 1
                     stop = True
 
-        return  resultList
+        return resultList
 
     # Takes the key as input and returns back the index for that specif key in the hash table
     def hashfunction(self, key):
-            tablesize = self.size
-            sum = 0
-            for pos in range(len(key)):
-                sum = sum + ord(key[pos])
+        tablesize = self.size
+        sum = 0
+        for pos in range(len(key)):
+            sum = sum + ord(key[pos])
 
-            return sum%tablesize
+        return sum % tablesize
 
     # For finding next possible positions
-    def rehash(self,oldhash):
+    def rehash(self, oldhash):
         tablesize = self.size
         # For finding next possible positions
-        return (oldhash+1)%tablesize
+        return (oldhash+1) % tablesize
 
     # Searches for index of the passed model name
     def searchIndex(self, key):
 
-        #Gets the list from listOfModels function in this class
+        # Gets the list from listOfModels function in this class
         list = self.listOfModels()
 
         try:
@@ -184,11 +182,11 @@ class HTDict(HTDictAbstract):
             return None
 
     # Function to add key to hash table (Key is model)
-    def pushForIndex(self,key):
+    def pushForIndex(self, key):
         self.hash_table.append(key)
 
-
     # Returns a list of models
+
     def listOfModels(self):
 
         tempList = []

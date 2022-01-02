@@ -1,14 +1,16 @@
 # Name = Kuldeep Thiara
 # Class = CS3100
 
-#Import the required libraries
+# Import the required libraries
 from abc import abstractmethod
 from abc import ABC, abstractmethod
+
 
 class ComputerInventoryHTDictAbstract(ABC):
 
     @abstractmethod
-    def search_model(self, model):    # Given the model name, returns a quantity object that has a matching model number.
+    # Given the model name, returns a quantity object that has a matching model number.
+    def search_model(self, model):
         pass
 
     # Given the date, returns a list of model that has a matching date.

@@ -6,9 +6,8 @@ from abc import abstractmethod
 from abc import ABC, abstractmethod
 
 
-#Implementing a dictionary using a linked list
+# Implementing a dictionary using a linked list
 class LLDictAbstract(ABC):
-
 
     # Adds items to the dictionary
     @abstractmethod

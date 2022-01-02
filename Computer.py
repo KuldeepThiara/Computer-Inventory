@@ -2,9 +2,9 @@
 # Class = CS3100
 
 
-class Computer: # Computer class to hold info about a single computer
+class Computer:  # Computer class to hold info about a single computer
 
-    def __init__(self): # constructor
+    def __init__(self):  # constructor
         self.__model = ""       # Computer Model
         self.__quantity = 0     # Quantity of the specific model
         self.__date = ""        # Date of stored data
@@ -36,5 +36,6 @@ class Computer: # Computer class to hold info about a single computer
     # adding a magic method to be able to print the computer information
     def __str__(self):
         #line =  "Model: " + self.__model + " Quantity: " + str(self.__quantity) + " Date: " + self.__date
-        line =  " " + self.__model + " " + str(self.__quantity) + " " + self.__date
+        line = " " + self.__model + " " + \
+            str(self.__quantity) + " " + self.__date
         return line

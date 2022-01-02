@@ -5,9 +5,10 @@ from abc import abstractmethod
 from abc import ABC, abstractmethod
 from LLDictAbstract import LLDictAbstract
 
-#Implementing a dictionary using a linked list
-class HTDictAbstract(LLDictAbstract):
+# Implementing a dictionary using a linked list
 
+
+class HTDictAbstract(LLDictAbstract):
 
     # Function to add model(key) and its value(quantity)
     @abstractmethod
@@ -16,7 +17,7 @@ class HTDictAbstract(LLDictAbstract):
 
     # add model for index search
     @abstractmethod
-    def pushForIndex(self,model):
+    def pushForIndex(self, model):
         pass
 
     # list of models

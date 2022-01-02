@@ -1,7 +1,7 @@
 # Name = Kuldeep Thiara
 # Class = CS3100
 
-#Import the required libraries
+# Import the required libraries
 from Computer import Computer
 from ComputerInventoryHTDictAbstract import ComputerInventoryHTDictAbstract
 from HTDict import HTDict
@@ -10,10 +10,12 @@ from datetime import date
 
 # Holds information for all computers in inventory
 # Inherititng from the base class
+
+
 class ComputerInventoryHTDict(ComputerInventoryHTDictAbstract):
 
     def __init__(self):
-         self.__computer_dict = HTDict() # Dictionay class
+        self.__computer_dict = HTDict()  # Dictionay class
 
     # Given the model name, returns a quantity object that has a matching model number.
     def search_model(self, key):
@@ -46,7 +48,7 @@ class ComputerInventoryHTDict(ComputerInventoryHTDictAbstract):
             reader = csv.reader(csv_file)
             next(reader, None)  # Skip the header.
             # Unpack the row directly in the head of the for loop.
-            for Model, Quantity ,Date in reader:
+            for Model, Quantity, Date in reader:
 
                 computer = Computer()
                 # Reads the first column and set it to model
@@ -57,17 +59,16 @@ class ComputerInventoryHTDict(ComputerInventoryHTDictAbstract):
                 computer.set_date(Date)
                 # Now append model as key and quanity as value.
 
-
-
                 if keyType == "Model":
-                        self.__computer_dict.push(computer.get_model(),computer.get_quantity())
+                    self.__computer_dict.push(
+                        computer.get_model(), computer.get_quantity())
                 elif keyType == "Date":
-                        self.__computer_dict.push2(computer.get_date(),computer)
+                    self.__computer_dict.push2(computer.get_date(), computer)
                 elif keyType == "Index":
-                        self.__computer_dict.pushForIndex(computer.get_model())
-                    
+                    self.__computer_dict.pushForIndex(computer.get_model())
 
     # Function to update and add models to csv
+
     def write_inventory(self, ComputerInventory_file, Model, newQuantity, keyType):
         # Open the file for reading
         # Loop through each line of the file
@@ -78,7 +79,7 @@ class ComputerInventoryHTDict(ComputerInventoryHTDictAbstract):
             # Temporary list to store date from reader
             tempList = list(reader)
 
-            #Function to update quantity
+            # Function to update quantity
             if keyType == "Update":
 
                 # Index for the model that needs to be updated
@@ -122,7 +123,7 @@ class ComputerInventoryHTDict(ComputerInventoryHTDictAbstract):
 
             csv_fileReader.close()
 
-        with open(ComputerInventory_file,'w', newline='') as csv_fileWriter:
+        with open(ComputerInventory_file, 'w', newline='') as csv_fileWriter:
             writer = csv.writer(csv_fileWriter)
 
             # Overwrites the templist to csv file.
